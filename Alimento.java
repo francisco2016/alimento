@@ -1,33 +1,38 @@
 
 /**
- * Write a description of class Alimento here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+aplicación destinada a personas que están a dieta y que necesitan contar las calorías y los macronutrientes de 
+los alimentos que ingieren
+ * @author (VACACIONES,   VACACIONES.) 
+ * @version (07   /01   /2016)
  */
 public class Alimento
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // At para guardar el nombre del alimento.
+    private String nombreAl;
+    // At para guardar el valor de las proteinas.
+    public float proteinas;
+    // At para guardar el valor de los carbohidratos.
+    public float carbohidratos;
+    // At para guardar el valor de las grasas.
+    public float grasas;
 
     /**
      * Constructor for objects of class Alimento
      */
-    public Alimento()
+    public Alimento(String nombreAl, float proteinas, float carbohidratos, float grasas)
     {
-        // initialise instance variables
-        x = 0;
+        this.nombreAl =  nombreAl;
+        this.proteinas = proteinas;
+        this.carbohidratos = carbohidratos;
+        this.grasas = grasas;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
-}
+    
+   }
+
+   
+
+
+
+
+
