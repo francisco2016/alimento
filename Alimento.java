@@ -47,6 +47,32 @@ public class Alimento
         float totalCalorias = ( ((proteinas + carbohidratos) *4) + grasas * 9);
         return totalCalorias;
     }
+    
+    /**
+     * Mt para señalar cual es el macronutriente mayoritario.
+     */
+    public String nutrienteMayor(){
+        String nutriente = "grasas";
+        if( (proteinas > carbohidratos) && (proteinas > grasas)){
+            nutriente = "proteinas";
+        }
+        if( (carbohidratos > proteinas) && (carbohidratos > grasas)){
+            nutriente = "carbohidratos";
+        }
+        if( (carbohidratos == proteinas) && (carbohidratos > grasas)){
+            nutriente = "carbohidratos y proteinas.";
+        }
+        if( (proteinas > carbohidratos) && (proteinas == grasas)){
+            nutriente = "proteinas y grasas. ";
+        }
+        if( (grasas == carbohidratos) && (proteinas < grasas)){
+            nutriente = "grasas y carbohidratos.";
+        }
+        if(((grasas == carbohidratos)) && (grasas == proteinas)){
+            nutriente = "grasas, carbohidratos y poteinas.";
+        }
+        return nutriente;
+    }
 
     
    }
