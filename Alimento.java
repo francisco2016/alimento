@@ -37,7 +37,7 @@ public class Alimento
         System.out.println("Carbohidratos por cada 100 gr:  " +carbohidratos);
         System.out.println("Grasas por cada 100 gr:         " +grasas);
         System.out.println("Total de calorias:              " +sumaCalorias());
-        System.out.println("Macronutriente/s mayoritario/s: "  );
+        System.out.println("Macronutriente/s mayoritario/s: " +nutrienteMayor());
     }
     
         /**
