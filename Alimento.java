@@ -36,8 +36,16 @@ public class Alimento
         System.out.println("Proteinas por cada 100 gr:      " +proteinas    );
         System.out.println("Carbohidratos por cada 100 gr:  " +carbohidratos);
         System.out.println("Grasas por cada 100 gr:         " +grasas);
-        System.out.println("Total de calorias:              "  );
+        System.out.println("Total de calorias:              " +sumaCalorias());
         System.out.println("Macronutriente/s mayoritario/s: "  );
+    }
+    
+        /**
+     * mt para sumar las calorias totales de cada alimento.
+     */
+    public float sumaCalorias(){
+        float totalCalorias = ( ((proteinas + carbohidratos) *4) + grasas * 9);
+        return totalCalorias;
     }
 
     
