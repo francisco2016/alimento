@@ -40,6 +40,23 @@ public class Usuario
        grasas = grasas + comida.getGrasas()*factor;
        calorias = calorias + comida.sumaCalorias()* factor   ;
     }
+    
+    /**
+     * Mt para mostrar por pantalla los datos
+     */
+    public void mostrarDatos(){
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Nombre:                         " +nombreUs);
+        System.out.println("");
+        System.out.println("Gramos totales de proteinas ingeridos:       " +proteinas   );
+        System.out.println("Gramos totales de carbohidratos ingeridos:   " +carbohidratos   );
+        System.out.println("Gramos totales de grasas ingeridos:          " +grasas  );
+        System.out.println("Total de calorias:              " +calorias);
+        //System.out.println("Macronutriente/s mayoritario/s: " +nutrienteMayor());
+
+    }
+
 
    
 }
