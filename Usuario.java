@@ -29,6 +29,17 @@ public class Usuario
        grasas = 0;
        calorias = 0;
     }
+    
+    /**
+     * mt para proporcionar alimentos al usuario.
+     */
+    public void comer(Alimento comida, float gramosAl){
+       float factor = gramosAl / 100;
+       proteinas = proteinas + comida.getProteinas()*factor;
+       carbohidratos = carbohidratos + comida.getCarbohidratos()*factor;
+       grasas = grasas + comida.getGrasas()*factor;
+       calorias = calorias + comida.sumaCalorias()* factor   ;
+    }
 
    
 }
