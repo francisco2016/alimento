@@ -24,15 +24,16 @@ public class Usuario
 {
     //At para guardar el nombre del usuario.
     private String nombreUs;
-    // At para guardar el valor de las proteinas.
+    // At para guardar el valor de las proteinas que el usuario lleva ingeridas.
     private float proteinas;
-    // At para guardar el valor de los carbohidratos.
+    // At para guardar el valor de los carbohidratos que el usuario lleva ingeridas..
     private float carbohidratos;
-    // At para guardar el valor de las grasas.
+    // At para guardar el valor de las grasas que el usuario lleva ingeridas..
     private float grasas;
-    // At para guardar el valor de las calorias.
+    // At para guardar el valor de las calorias que el usuario lleva ingeridas..
     private float calorias;
 
+     
     /**
      * Constructor for objects of class Usuario
      */
@@ -43,7 +44,8 @@ public class Usuario
         carbohidratos = 0;
         grasas = 0;
         calorias = 0;
-     
+
+       
     }
 
     /**
@@ -55,10 +57,23 @@ public class Usuario
         carbohidratos = carbohidratos + comida.getCarbohidratos() * factor;
         grasas = grasas + comida.getGrasas()*factor;
         calorias = calorias + comida.sumaCalorias()* factor   ;
+
+        
     }
 
     /**
-     * Mt para mostrar por pantalla los datos; !!!!!!! SIN TERMINAR LA MUESTRA POR PANTALLA DE LOS PORCENTAJES.  !!!!!!!!!!!!!!!!!!!!!
+     * Mt para recuperar el nombre del usuario.
+     */
+    public String getNombreUs(){
+        return nombreUs;
+    }
+    
+    public float getCalorias(){
+        return calorias;
+    }
+    
+    /**
+     * Mt para mostrar por pantalla los datos del alimento ingerido por el usuario;  
      */
     public void mostrarDatos(){
         float gramosAl = proteinas + carbohidratos + grasas;
@@ -82,25 +97,31 @@ public class Usuario
             System.out.println("Gramos totales de grasas ingeridos:          0.0"    );
             System.out.println("Total de calorias:                           0.0"  );
         }
-
     }
 
-    //     /**
-    //      * Mt para mostrar por pantalla los datos
-    //      */
-    //     public void mostrarDatos(){
-    //         System.out.println("");
-    //         System.out.println("");
-    //         System.out.println("Nombre:                         " +nombreUs);
-    //         System.out.println("");
-    //         System.out.println("Gramos totales de proteinas ingeridos:       " +proteinas   );
-    //         System.out.println("Gramos totales de carbohidratos ingeridos:   " +carbohidratos   );
-    //         System.out.println("Gramos totales de grasas ingeridos:          " +grasas  );
-    //         System.out.println("Total de calorias:              " +calorias);
-    //         //System.out.println("Macronutriente/s mayoritario/s: " +nutrienteMayor());
-    // 
-    //     }
+    /**
+     * mt para comparar la ingesta de alimentos entre dos usuarios.
+     */
+    public void comparaIgesta(Usuario segundoUsuario){
+       
+        if(calorias < segundoUsuario.getCalorias()  ){
+            System.out.println( segundoUsuario+ "  Ha consumido mas calorias que " +segundoUsuario.getNombreUs()+ " (" +
+                                               getCalorias()+ " Frente a: " +segundoUsuario.getCalorias()+ " )");
+
+        }
+          if(calorias > segundoUsuario.getCalorias()  ){
+            System.out.println( nombreUs+ " Ha consumido mas calorias que " +segundoUsuario.getNombreUs()+ " (" +
+                                               getCalorias()+ " Frente a: " +segundoUsuario.getCalorias()+ " )");
+
+        }
+        else{
+            System.out.println( nombreUs+ " Ha consumido las mismas calorias que " +segundoUsuario.getNombreUs());
+        }
+    
+    }
+    
+    
+    
 
 }
-
 
