@@ -71,6 +71,9 @@ public class Alimento
     public float getCalorias(){
         return calorias;
     }
+     public String getNombreAl(){
+        return nombreAl;
+    }
     
      
         /**

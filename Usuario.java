@@ -32,7 +32,10 @@ public class Usuario
     private float grasas;
     // At para guardar el valor de las calorias que el usuario lleva ingeridas..
     private float calorias;
-
+    // At para guardar el valor máximo  de las calorias.
+    private float maxCalorias;
+     // At para guardar el valor del alimento con más calorías.
+    private Alimento conMasCalorias; 
      
     /**
      * Constructor for objects of class Usuario
@@ -44,8 +47,8 @@ public class Usuario
         carbohidratos = 0;
         grasas = 0;
         calorias = 0;
-
-       
+        maxCalorias = 0;
+        conMasCalorias = null;
     }
 
     /**
@@ -57,10 +60,26 @@ public class Usuario
         carbohidratos = carbohidratos + comida.getCarbohidratos() * factor;
         grasas = grasas + comida.getGrasas()*factor;
         calorias = calorias + comida.sumaCalorias()* factor   ;
-
         
+        if(comida.getCalorias() >= maxCalorias){
+            conMasCalorias = comida;
+            maxCalorias = comida.getCalorias();
+        }
     }
-
+    
+    /**
+     *Mt. para mostrar por pantalla el alimento con mayor nº de calorias. 
+     */
+    public void mostrarAlimentoConMasCalorias(){
+        if(conMasCalorias != null){
+            System.out.println("Alimento más calórico ingerido por este usuario hasta el momento: " +conMasCalorias.getNombreAl()+
+                                    " con un total de " +conMasCalorias.getCalorias()/100+ " calorias. ");
+        }
+        else{
+            System.out.println("No se han ingerido alimentos.");
+        }
+    }
+    
     /**
      * Mt para recuperar el nombre del usuario.
      */
