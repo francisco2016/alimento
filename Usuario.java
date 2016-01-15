@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * A partir del código final de la actividad 0289, crea una nueva clase llamada Usuario y codifica el código necesario para poder 
  * crear objetos de la clase Usuario. Estos objetos de tipo Usuario representan a personas que usan nuestra aplicación.
@@ -34,9 +34,11 @@ public class Usuario
     private float calorias;
     // At para guardar el valor máximo  de las calorias.
     private float maxCalorias;
-     // At para guardar el valor del alimento con más calorías.
+    // At para guardar el valor del alimento con más calorías.
     private Alimento conMasCalorias; 
-     
+    // At para guardar los alimentos comidos como si fuese una coleccion.
+    private ArrayList<Alimento> alSelec;
+
     /**
      * Constructor for objects of class Usuario
      */
@@ -49,48 +51,79 @@ public class Usuario
         calorias = 0;
         maxCalorias = 0;
         conMasCalorias = null;
+
+        alSelec = new ArrayList<Alimento>();
     }
 
     /**
      * mt para proporcionar alimentos al usuario.
      */
     public void comer(Alimento comida, float gramosAl){
+        alSelec.add(comida);
         float factor = gramosAl / 100;
         proteinas = proteinas + comida.getProteinas()*factor;
         carbohidratos = carbohidratos + comida.getCarbohidratos() * factor;
         grasas = grasas + comida.getGrasas()*factor;
         calorias = calorias + comida.sumaCalorias()* factor   ;
-        
-        if(comida.getCalorias() >= maxCalorias){
-            conMasCalorias = comida;
-            maxCalorias = comida.getCalorias();
+
+        if(conMasCalorias != null){
+            if(comida.getCalorias() >= conMasCalorias.getCalorias()){
+                conMasCalorias = comida ;
+                maxCalorias = comida.getCalorias();
+            }
+        }
+        // posicion++;  //va sumando las posiciones de los alimentos según se van cosumiendo.
+    }
+
+    /**
+     *Mt para mostrar los nutrientes del alimentos seleccionado. 
+     */
+    public void seleccionaAlimento(int posicionAlimento){
+        //         int index = 0;
+        //        // boolean encontrarAlimento = true;
+        //         while(index < alSelec.size() && encontrarAlimento){
+        //             //posicion = posicionAlimento;
+        //             Alimento filename = alSelec.get(index);
+        //             if(alSelec.contains(posicionAlimento)){
+        //                 encontrarAlimento = false;
+        //             }
+        //             else{
+        //                 index++;
+        //             }
+        //         }
+        if(posicionAlimento >= 0 && posicionAlimento < alSelec.size()){
+            Alimento nombreAl = alSelec.get(posicionAlimento);
+            nombreAl.muestraDatos();
+        }
+        else{
+            System.out.println("Error no hay alimento.");
         }
     }
-    
+
     /**
      *Mt. para mostrar por pantalla el alimento con mayor nº de calorias. 
      */
     public void mostrarAlimentoConMasCalorias(){
         if(conMasCalorias != null){
             System.out.println("Alimento más calórico ingerido por este usuario hasta el momento: " +conMasCalorias.getNombreAl()+
-                                    " con un total de " +conMasCalorias.getCalorias()/100+ " calorias. ");
+                " con un total de " +conMasCalorias.getCalorias()/100+ " calorias. ");
         }
         else{
             System.out.println("No se han ingerido alimentos.");
         }
     }
-    
+
     /**
      * Mt para recuperar el nombre del usuario.
      */
     public String getNombreUs(){
         return nombreUs;
     }
-    
+
     public float getCalorias(){
         return calorias;
     }
-    
+
     /**
      * Mt para mostrar por pantalla los datos del alimento ingerido por el usuario;  
      */
@@ -122,25 +155,21 @@ public class Usuario
      * mt para comparar la ingesta de alimentos entre dos usuarios.
      */
     public void comparaIgesta(Usuario segundoUsuario){
-       
+
         if(calorias < segundoUsuario.getCalorias()  ){
             System.out.println( segundoUsuario+ "  Ha consumido mas calorias que " +segundoUsuario.getNombreUs()+ " (" +
-                                               getCalorias()+ " Frente a: " +segundoUsuario.getCalorias()+ " )");
+                getCalorias()+ " Frente a: " +segundoUsuario.getCalorias()+ " )");
 
         }
-          if(calorias > segundoUsuario.getCalorias()  ){
+        if(calorias > segundoUsuario.getCalorias()  ){
             System.out.println( nombreUs+ " Ha consumido mas calorias que " +segundoUsuario.getNombreUs()+ " (" +
-                                               getCalorias()+ " Frente a: " +segundoUsuario.getCalorias()+ " )");
+                getCalorias()+ " Frente a: " +segundoUsuario.getCalorias()+ " )");
 
         }
         else{
             System.out.println( nombreUs+ " Ha consumido las mismas calorias que " +segundoUsuario.getNombreUs());
         }
-    
+
     }
-    
-    
-    
 
 }
-

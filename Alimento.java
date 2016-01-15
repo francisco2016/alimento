@@ -33,13 +33,13 @@ public class Alimento
      * Mt para mostrar información nutricional de los alimentos.
      */
     public void muestraDatos(){
-        //System.out.println("Nombre:                         " +nombreAl);
+         System.out.println("Nombre:                         " +nombreAl);
         System.out.println("");
         System.out.println("Proteinas por cada 100 gr:      " +proteinas    );
         System.out.println("Carbohidratos por cada 100 gr:  " +carbohidratos);
         System.out.println("Grasas por cada 100 gr:         " +grasas);
         System.out.println("Total de calorias:              " +sumaCalorias());
-        //System.out.println("Macronutriente/s mayoritario/s: " +nutrienteMayor());
+        System.out.println("Macronutriente/s mayoritario/s: " +nutrienteMayor());
     }
     
     /**
